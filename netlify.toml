@@ -1,7 +1,10 @@
 # Netlify deployment configuration
 [build]
-  command = "npm run build"
-  publish = "dist"
+command = "npm run build"
+publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "20"
+NODE_VERSION = "20"
+# Netlify sets NODE_ENV=production by default, which makes npm skip
+# devDependencies (typescript etc.) — force them to install.
+NPM_FLAGS = "--include=dev"
