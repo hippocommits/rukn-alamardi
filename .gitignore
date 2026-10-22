@@ -1,0 +1,4 @@
+node_modules
+dist
+.musepool
+*.log

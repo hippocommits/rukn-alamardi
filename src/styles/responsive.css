@@ -1,0 +1,138 @@
+/* ============ responsive ============ */
+
+@media (max-width: 1100px) {
+  .site-nav {
+    display: none;
+  }
+
+  .site-header__burger {
+    display: inline-flex;
+  }
+
+  .industries__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .why__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .process__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 32px;
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__media {
+    order: -1;
+  }
+
+  .hero__figure img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__media-secondary {
+    width: 88%;
+  }
+
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svc__panel {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 15.5px;
+  }
+
+  .site-header__quote {
+    display: none;
+  }
+
+  .brand__descriptor {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 28px;
+  }
+
+  .service-strip__list {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .industries__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .form__row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .svc__head {
+    grid-template-columns: 34px 36px minmax(0, 1fr) 28px;
+    gap: 10px;
+  }
+
+  .svc__index {
+    font-size: 11px;
+  }
+
+  .svc__icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .svc__summary {
+    display: none;
+  }
+
+  .contact__row {
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .wa-float__label {
+    display: none;
+  }
+
+  .wa-float {
+    padding: 0;
+    width: 52px;
+    justify-content: center;
+  }
+}
