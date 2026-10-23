@@ -55,6 +55,7 @@ export default function About() {
                 height={1024}
                 loading="lazy"
               />
+              <p className="about__media-caption mono">Certified MEP works</p>
             </Reveal>
             <Reveal className="about__media-secondary">
               <img

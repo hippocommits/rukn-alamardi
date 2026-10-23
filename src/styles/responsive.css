@@ -1,5 +1,6 @@
 /* ============ responsive ============ */
 
+/* Tablet & Smaller Desktop (max-width: 1100px) */
 @media (max-width: 1100px) {
   .site-nav {
     display: none;
@@ -27,29 +28,99 @@
   }
 }
 
+/* Medium Tablets & Mobiles (max-width: 900px) */
 @media (max-width: 900px) {
   .hero__inner {
     grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
   }
 
+  /* Ensure hero copy appears FIRST on smaller screens */
+  .hero__copy {
+    order: 1;
+  }
+
+  /* Hero photo appears SECOND with controlled, space-efficient proportions */
   .hero__media {
-    order: -1;
+    order: 2;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .hero__figure {
+    max-width: 680px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
   }
 
   .hero__figure img {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
+    max-height: 280px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
   }
 
+  /* Prevent decorative frame from overflowing horizontal viewport */
+  .hero__figure::before {
+    display: none;
+  }
+
+  .hero__caption {
+    margin-top: 8px;
+    font-size: 11.5px;
+  }
+
+  /* About section: Compact side-by-side gallery instead of massive stacked images */
   .about__grid {
     grid-template-columns: 1fr;
+    gap: 36px;
   }
 
+  .about__media {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    width: 100%;
+    margin-top: 16px;
+    align-items: stretch;
+  }
+
+  .about__media-main,
   .about__media-secondary {
-    width: 88%;
+    width: 100%;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about__media-main img,
+  .about__media-secondary img {
+    aspect-ratio: 4 / 3;
+    max-height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--line-strong);
+  }
+
+  .about__media-caption {
+    writing-mode: horizontal-tb;
+    display: block;
+    font-size: 11px;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  .about__media-main .about__media-caption {
+    display: block;
   }
 
   .contact__grid {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   .svc__panel {
@@ -57,9 +128,40 @@
   }
 }
 
+/* Phones & Small Screens (max-width: 640px) */
 @media (max-width: 640px) {
+  :root {
+    --sheet-x: 18px;
+  }
+
   body {
-    font-size: 15.5px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Ergonomic section spacing for mobile devices */
+  .section {
+    padding: 52px var(--sheet-x);
+    scroll-margin-top: 64px;
+  }
+
+  .section-head {
+    margin-bottom: 24px;
+  }
+
+  .section-head__line {
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+
+  .section-head__title {
+    font-size: clamp(24px, 6.5vw, 32px);
+    line-height: 1.18;
+  }
+
+  .section-head__note {
+    font-size: 14.5px;
+    margin-top: 12px;
   }
 
   .site-header__quote {
@@ -70,8 +172,85 @@
     display: none;
   }
 
+  /* Hero: Content-first hierarchy */
   .hero {
-    padding-top: 28px;
+    padding-top: 24px;
+    scroll-margin-top: 64px;
+  }
+
+  .hero__eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    margin-bottom: 12px;
+  }
+
+  .hero__title {
+    font-size: clamp(28px, 8vw, 38px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  .hero__lede {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-top: 14px;
+  }
+
+  .hero__ctas {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .hero__ctas .btn {
+    width: 100%;
+    min-height: 48px;
+    font-size: 15px;
+    justify-content: center;
+  }
+
+  /* Dedicated high-visibility WhatsApp quick assist badge */
+  .hero__wa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* Space-conscious hero visual banner */
+  .hero__media {
+    margin-top: 24px;
+  }
+
+  .hero__figure {
+    border-radius: 10px;
+    border: 1px solid var(--line-strong);
+  }
+
+  .hero__figure img {
+    aspect-ratio: 16 / 9;
+    max-height: 190px;
+    border-radius: 10px;
+    border: none;
+  }
+
+  .hero__caption {
+    font-size: 10.5px;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  /* Service Strip: Native horizontal swipe chip carousel */
+  .service-strip {
+    background: var(--paper-deep);
   }
 
   .service-strip__list {
@@ -79,33 +258,75 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 2px 4px;
   }
 
-  .industries__grid {
-    grid-template-columns: 1fr;
+  .service-strip__list::-webkit-scrollbar {
+    display: none;
   }
 
-  .why__grid {
-    grid-template-columns: 1fr;
+  .service-strip__item {
+    padding: 12px 16px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
   }
 
-  .process__steps {
-    grid-template-columns: 1fr;
+  /* About Section: Clean side-by-side gallery cutting vertical space by 70% */
+  .about__intro {
+    font-size: 17.5px;
+    line-height: 1.5;
   }
 
-  .form__row {
-    grid-template-columns: 1fr;
-    gap: 0;
+  .about__list {
+    margin-top: 20px;
   }
 
-  .site-footer__inner {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .about__item {
+    padding: 10px 0;
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  .about__media {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .about__media-main img,
+  .about__media-secondary img {
+    aspect-ratio: 4 / 3;
+    max-height: 135px;
+    border-radius: 8px;
+  }
+
+  .about__media-caption {
+    font-size: 10px;
+    margin-top: 4px;
+  }
+
+  /* Services Index Accordion on Mobile */
+  .services__toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .services__count {
+    font-size: 11px;
+  }
+
+  .services__toggle-all {
+    font-size: 11.5px;
   }
 
   .svc__head {
-    grid-template-columns: 34px 36px minmax(0, 1fr) 28px;
+    grid-template-columns: 28px 36px minmax(0, 1fr) 24px;
     gap: 10px;
+    padding: 16px 2px;
   }
 
   .svc__index {
@@ -117,22 +338,196 @@
     height: 36px;
   }
 
+  .svc__title {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
   .svc__summary {
     display: none;
   }
 
-  .contact__row {
-    grid-template-columns: 104px minmax(0, 1fr);
+  .svc__body {
+    padding: 2px 2px 24px;
+  }
+
+  .svc__panel {
+    padding-top: 14px;
+    gap: 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .svc__item {
+    padding: 5px 0 5px 16px;
+    font-size: 14px;
+  }
+
+  .svc__note {
+    font-size: 12.5px;
+    padding: 10px 12px;
+  }
+
+  /* Industries & Why Us */
+  .industries__grid {
+    grid-template-columns: 1fr;
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .industry {
+    padding: 20px 18px;
+  }
+
+  .why__grid {
+    grid-template-columns: 1fr;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .why__item {
+    padding: 22px 18px;
+  }
+
+  .process__steps {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .process__step {
+    padding-bottom: 18px;
+    border-bottom: 1px solid color-mix(in srgb, var(--on-navy) 20%, transparent);
+  }
+
+  .process__step:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  /* CTA Band Mobile */
+  .cta-band {
+    padding: 44px var(--sheet-x);
+  }
+
+  .cta-band__title {
+    font-size: clamp(23px, 6vw, 30px);
+    line-height: 1.15;
+  }
+
+  .cta-band__text {
+    font-size: 14.5px;
+    margin-top: 12px;
+  }
+
+  .cta-band__actions {
+    margin-top: 22px;
+    flex-direction: column;
     gap: 10px;
   }
 
+  .cta-band__actions .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+
+  /* Contact Form Mobile */
+  .form__row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form__field {
+    margin-bottom: 16px;
+  }
+
+  .form__field input,
+  .form__field select,
+  .form__field textarea {
+    padding: 11px 12px;
+    font-size: 15px;
+    border-radius: 6px;
+  }
+
+  .form__chips {
+    gap: 6px;
+  }
+
+  .chip {
+    padding: 8px 12px;
+    min-height: 38px;
+    font-size: 12.5px;
+    border-radius: 6px;
+  }
+
+  .form__radios {
+    gap: 12px;
+  }
+
+  .contact__row {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 10px;
+    padding: 13px 0;
+  }
+
+  .contact__row dd {
+    font-size: 14px;
+  }
+
+  /* Footer Mobile */
+  .site-footer {
+    padding-top: 48px;
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .site-footer__bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 20px 0 28px;
+  }
+
+  /* Floating WhatsApp */
   .wa-float__label {
     display: none;
   }
 
   .wa-float {
     padding: 0;
-    width: 52px;
+    width: 50px;
+    height: 50px;
     justify-content: center;
+    border-radius: 50%;
+    bottom: 18px;
+    right: 18px;
+  }
+}
+
+/* Extra small mobile devices (max-width: 400px) */
+@media (max-width: 400px) {
+  :root {
+    --sheet-x: 14px;
+  }
+
+  .hero__title {
+    font-size: 26px;
+  }
+
+  .hero__figure img {
+    max-height: 160px;
+  }
+
+  .about__media-main img,
+  .about__media-secondary img {
+    max-height: 115px;
+  }
+
+  .contact__row {
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 }

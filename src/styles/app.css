@@ -396,6 +396,10 @@
   color: var(--ink-55);
 }
 
+.about__media-main .about__media-caption {
+  display: none;
+}
+
 /* ---- services ---- */
 .services__toolbar {
   display: flex;
